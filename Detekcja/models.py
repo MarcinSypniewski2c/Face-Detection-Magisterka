@@ -17,7 +17,7 @@ def NMS_tflite(boxes, scores):
     scores_tensor = tf.convert_to_tensor(scores)
 
     selected_indices = tf.image.non_max_suppression(
-        boxes_tensor, scores_tensor, max_output_size=3, iou_threshold=0.6)
+        boxes_tensor, scores_tensor, max_output_size=10, iou_threshold=0.6)
     selected_boxes = tf.gather(boxes_tensor, selected_indices)
 
     new_boxes = selected_boxes.numpy()
@@ -87,6 +87,9 @@ class Retinaface:
         for b,l,s in bls:
             if s > 0.6:
                 xyxy = [[b[0], b[1], b[2], b[3]]]
+            else:
+                xyxy = []
+
         masks = [None for _ in range(len(xyxy))]
         return zip(xyxy, masks)
     
