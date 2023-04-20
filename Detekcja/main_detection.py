@@ -1,11 +1,11 @@
 import cv2
 
-from models import Haar, Retinaface, FaceRecoLib, YoloV5
+from models import Haar, Insightface, FaceRecoLib, YoloV5
 
 import config as cfg
 from logger import logger
 
-#detector = Retinaface()
+#detector = Insightface()
 #detector = Haar()
 #detector = FaceRecoLib()
 detector = YoloV5()

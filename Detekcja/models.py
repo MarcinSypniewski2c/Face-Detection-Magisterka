@@ -1,6 +1,6 @@
 import numpy as np
 import math
-from face_detection import RetinaFace
+from insightface.app import FaceAnalysis
 import tensorflow as tf
 import tflite_runtime.interpreter as tflite
 import face_recognition
@@ -17,7 +17,7 @@ def NMS_tflite(boxes, scores):
     scores_tensor = tf.convert_to_tensor(scores)
 
     selected_indices = tf.image.non_max_suppression(
-        boxes_tensor, scores_tensor, max_output_size=10, iou_threshold=0.6)
+        boxes_tensor, scores_tensor, max_output_size=150, iou_threshold=0.6)
     selected_boxes = tf.gather(boxes_tensor, selected_indices)
 
     new_boxes = selected_boxes.numpy()
@@ -74,22 +74,18 @@ class Haar:
         masks = [None for _ in range(len(xyxy))]
         return zip(xyxy, masks)
     
-class Retinaface:
+class Insightface:
     def __init__(self):
-        self.retina = RetinaFace()
+        self.insightface = FaceAnalysis(name="antelope")
+        self.insightface.prepare(ctx_id=0, det_size=(640, 640))
         logger.info("RetinaFace detector initialized")
     
     def detect_face(self, img):
-        resp = self.retina(img)
+        resp = self.insightface.get(img)
         return self.postprocess(resp)
     
-    def postprocess(self, bls):
-        for b,l,s in bls:
-            if s > 0.6:
-                xyxy = [[b[0], b[1], b[2], b[3]]]
-            else:
-                xyxy = []
-
+    def postprocess(self, resp):
+        xyxy = [r[0] for r in resp]
         masks = [None for _ in range(len(xyxy))]
         return zip(xyxy, masks)
     

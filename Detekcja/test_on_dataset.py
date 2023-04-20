@@ -4,17 +4,18 @@ import time
 import numpy as np
 import csv
 
-from models import Haar, Retinaface, FaceRecoLib, YoloV5
+from models import Haar, Insightface, FaceRecoLib, YoloV5
 
 import config as cfg
 from logger import logger
 
-detector = Retinaface()
+detector = Insightface()
 #detector = Haar()
 #detector = FaceRecoLib()
 #detector = YoloV5()
-dataname = "wider_face_val_retina"
-dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/WiderFace/WIDER_val/'
+
+dataname = "mafa_val_insight"
+dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/MaFa/val/'
 dataset_labels_path = dataset_path + 'labels_yolo'
 dataset_images_path = dataset_path + 'images'
 
