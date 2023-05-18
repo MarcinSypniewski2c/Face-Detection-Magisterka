@@ -9,13 +9,13 @@ from models import Haar, Insightface, FaceRecoLib, YoloV5
 import config as cfg
 from logger import logger
 
-detector = Insightface()
-#detector = Haar()
+#detector = Insightface()
+detector = Haar()
 #detector = FaceRecoLib()
 #detector = YoloV5()
 
-dataname = "mafa_val_insight"
-dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/MaFa/val/'
+dataname = "wider_val_haar"
+dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/WiderFace/WIDER_val/'
 dataset_labels_path = dataset_path + 'labels_yolo'
 dataset_images_path = dataset_path + 'images'
 

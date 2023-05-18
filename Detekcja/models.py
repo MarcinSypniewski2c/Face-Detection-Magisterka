@@ -51,7 +51,7 @@ class Haar:
         self.face_cascade = cv2.CascadeClassifier(model)
         self.SCALE_FACTOR = 1.1
         self.MIN_NEIGHBORS = 3
-        self.MIN_SIZE = (100, 100)
+        self.MIN_SIZE = (10, 10)
         self.MAX_SIZE = None
         self.CSI = cv2.CASCADE_SCALE_IMAGE
 
