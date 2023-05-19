@@ -20,7 +20,7 @@ from models import InsightFace
 reco_filename = "lfw_reco_insight.csv"
 thr = 23.0
 
-lfw_people = fetch_lfw_people(min_faces_per_person=70, resize=1)
+lfw_people = fetch_lfw_people(min_faces_per_person=20, resize=1, color=True)
 target_names = lfw_people.target_names
 print(len(lfw_people.images))
 print(lfw_people.target[0])
@@ -47,7 +47,7 @@ for filename in os.listdir(folder_path):
 recognitions = []
 i = 0
 for img in lfw_people.images:
-    image = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+    image = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     embeddings = reco.get_embeddings(image)
     for emb in embeddings:
         dist = []
