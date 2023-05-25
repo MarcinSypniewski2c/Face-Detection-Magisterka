@@ -5,8 +5,8 @@ import tensorflow as tf
 import tflite_runtime.interpreter as tflite
 import face_recognition
 import cv2
-import config as cfg
-from logger import logger
+import Detekcja.config.config as cfg
+from Detekcja.logger.logger import logger
 
 def NMS_tflite(boxes, scores):
     '''
@@ -77,8 +77,8 @@ class Haar:
 class Insightface:
     def __init__(self):
         self.insightface = FaceAnalysis(name="antelope")
-        self.insightface.prepare(ctx_id=0, det_size=(640, 640))
-        logger.info("RetinaFace detector initialized")
+        self.insightface.prepare(ctx_id=0, det_size=(320, 320))
+        logger.info("InsightFace detector initialized")
     
     def detect_face(self, img):
         resp = self.insightface.get(img)

@@ -4,10 +4,7 @@ import time
 import numpy as np
 import csv
 
-from models import Haar, Insightface, FaceRecoLib, YoloV5
-
-import config as cfg
-from logger import logger
+from Detekcja.models import Haar, Insightface, FaceRecoLib, YoloV5
 
 #detector = Insightface()
 detector = Haar()
@@ -52,7 +49,6 @@ def dice_coef(gt, pr):
 def main():
     statistics = []
     confusions = []
-    logger.info("Starting face detection script")
     curr_img_num = 1
     num_of_images = len(os.listdir(dataset_images_path))
 

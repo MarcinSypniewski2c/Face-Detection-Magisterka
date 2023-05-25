@@ -1,9 +1,6 @@
 import cv2
 
-from models import Haar, Insightface, FaceRecoLib, YoloV5
-
-import config as cfg
-from logger import logger
+from Detekcja.models import Haar, Insightface, FaceRecoLib, YoloV5
 
 #detector = Insightface()
 #detector = Haar()
@@ -11,12 +8,10 @@ from logger import logger
 detector = YoloV5()
 
 def main():
-    logger.info("Starting face detection script")
     cap = cv2.VideoCapture(0)
 
     while True:
         ret, frame = cap.read()
-
         if ret:
             preds = detector.detect_face(frame)
             for pred in preds:
@@ -41,7 +36,6 @@ def main():
 
     cap.release()
     cv2.destroyAllWindows()
-    logger.info("Closing face recognition script")
 
 if __name__ == "__main__":
     main()
