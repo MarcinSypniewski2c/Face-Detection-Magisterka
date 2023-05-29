@@ -11,8 +11,8 @@ detector = Haar()
 #detector = FaceRecoLib()
 #detector = YoloV5()
 
-dataname = "wider_val_haar"
-dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/WiderFace/WIDER_val/'
+dataname = "wider_train_haar"
+dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/WiderFace/WIDER_train/'
 dataset_labels_path = dataset_path + 'labels_yolo'
 dataset_images_path = dataset_path + 'images'
 

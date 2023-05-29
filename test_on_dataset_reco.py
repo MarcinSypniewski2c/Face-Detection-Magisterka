@@ -3,21 +3,24 @@ import itertools
 import csv
 import numpy as np
 
-from Rozpoznawanie.load_datasets import LFW
-from Rozpoznawanie.models import InsightFace
+from Rozpoznawanie.load_datasets import LFW, MFN
+from Rozpoznawanie.models import InsightFace, FaceNet
 from Detekcja.models import Haar, YoloV5, FaceRecoLib, Insightface
 
 reco_filename = "Rozpoznawanie/results/lfw_reco_insight.csv"
 
-lfw = LFW()
+#dataset = LFW()
+dataset = MFN()
+
 #detector = Haar()
 detector = YoloV5()
 #detector = FaceRecoLib()
 #detector = Insightface()
 
+#recognizer = FaceNet()
 recognizer = InsightFace()
 
-data, names = lfw.get_data()
+data, names = dataset.get_data()
 data_len = len(data)
 
 i = 1

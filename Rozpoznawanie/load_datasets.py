@@ -27,3 +27,21 @@ class LFW:
             data.append(img)
 
         return data, names
+    
+class MFN:
+    def __init__(self):
+        self.dataset_path = "/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/"
+        self.data_images_path = self.dataset_path + "CMFD/*/*.jpg"
+    
+    def get_data(self):
+        data = []
+        names = []
+        for path in glob.glob(self.data_images_path, recursive=True):
+            #names
+            names.append((path.split("/")[-1]).split(".")[0])
+
+            #images
+            img = cv2.imread(path)
+            data.append(img)
+
+        return data, names

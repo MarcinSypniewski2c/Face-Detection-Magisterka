@@ -2,10 +2,10 @@ import cv2
 
 from Detekcja.models import Haar, Insightface, FaceRecoLib, YoloV5
 
-#detector = Insightface()
+detector = Insightface()
 #detector = Haar()
 #detector = FaceRecoLib()
-detector = YoloV5()
+#detector = YoloV5()
 
 def main():
     cap = cv2.VideoCapture(0)
@@ -15,6 +15,7 @@ def main():
         if ret:
             preds = detector.detect_face(frame)
             for pred in preds:
+                print(pred[0])
                 xmin, ymin, xmax, ymax = pred[0]
                 xmin = int(xmin)
                 ymin = int(ymin)

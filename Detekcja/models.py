@@ -50,7 +50,7 @@ class Haar:
     def __init__(self, model=cfg.HAAR_MODEL_PATH):
         self.face_cascade = cv2.CascadeClassifier(model)
         self.SCALE_FACTOR = 1.1
-        self.MIN_NEIGHBORS = 3
+        self.MIN_NEIGHBORS = 7
         self.MIN_SIZE = (10, 10)
         self.MAX_SIZE = None
         self.CSI = cv2.CASCADE_SCALE_IMAGE
@@ -77,7 +77,7 @@ class Haar:
 class Insightface:
     def __init__(self):
         self.insightface = FaceAnalysis(name="antelope")
-        self.insightface.prepare(ctx_id=0, det_size=(320, 320))
+        self.insightface.prepare(ctx_id=0, det_size=(640, 640))
         logger.info("InsightFace detector initialized")
     
     def detect_face(self, img):
