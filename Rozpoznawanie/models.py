@@ -28,7 +28,7 @@ class InsightFace:
         return embeds
 
 class FaceNet:
-    def __init__(self, model_path_face = 'models/facenet.tflite'):
+    def __init__(self, model_path_face = 'Rozpoznawanie/models/facenet.tflite'):
         self.interpreter_face = tflite.Interpreter(model_path = model_path_face)
         self.interpreter_face.allocate_tensors()
 
