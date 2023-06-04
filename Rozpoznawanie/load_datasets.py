@@ -15,33 +15,39 @@ class LFW:
         self.dataset_path = "/home/msypniewski@sap-flex.com/Documents/DATASETS/LFW_people/"
         self.data_images_path = self.dataset_path + "lfw_funneled/*/*.jpg"
 
-    def get_data(self):
-        data = []
+    def get_names(self):
         names = []
         for path in glob.glob(self.data_images_path, recursive=True):
             #names
             names.append((path.split("/")[-1]).split(".")[0])
+        return names
+
+    def get_data(self):
+        for path in glob.glob(self.data_images_path, recursive=True):
 
             #images
-            img = cv2.imread(path)
-            data.append(img)
+            #img = cv2.imread(path)
+            data = cv2.imread(path)
 
-        return data, names
+            yield data
     
 class MFN:
     def __init__(self):
         self.dataset_path = "/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/"
-        self.data_images_path = self.dataset_path + "CMFD/*/*.jpg"
-    
-    def get_data(self):
-        data = []
+        self.data_images_path = self.dataset_path + "CMFD/images/*.jpg"
+
+    def get_names(self):
         names = []
         for path in glob.glob(self.data_images_path, recursive=True):
             #names
             names.append((path.split("/")[-1]).split(".")[0])
+        return names
+
+    def get_data(self):
+        for path in glob.glob(self.data_images_path, recursive=True):
 
             #images
-            img = cv2.imread(path)
-            data.append(img)
+            #img = cv2.imread(path)
+            data = cv2.imread(path)
 
-        return data, names
+            yield data

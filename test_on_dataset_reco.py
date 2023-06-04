@@ -8,7 +8,7 @@ from Rozpoznawanie.load_datasets import LFW, MFN
 from Rozpoznawanie.models import InsightFace, FaceNet
 from Detekcja.models import Haar, YoloV5, FaceRecoLib, Insightface
 
-reco_filename = "Rozpoznawanie/results/lfw_reco_facenet.csv"
+reco_filename = "Rozpoznawanie/results/test.csv"
 
 dataset = LFW()
 #dataset = MFN()
@@ -21,16 +21,17 @@ detector = YoloV5()
 recognizer = FaceNet()
 #recognizer = InsightFace()
 
-data, names = dataset.get_data()
-data_len = len(data)
+names = dataset.get_names()
+#data_len = len(data)
 
 i = 1
 embeddings = []
 embeddings_names = []
 recognitions = []
 
-for k, img in enumerate(data):
-    print(str(i) + "/" + str(data_len))
+for k, img in enumerate(dataset.get_data()):
+    print(i)
+    #print(str(i) + "/" + str(data_len))
     i = i+1
     preds = detector.detect_face(img)
     for pred in preds:
