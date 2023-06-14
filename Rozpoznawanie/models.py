@@ -1,5 +1,5 @@
 from insightface.app import FaceAnalysis
-
+import face_recognition
 import tensorflow as tf
 import tflite_runtime.interpreter as tflite
 import numpy as np
@@ -52,4 +52,12 @@ class FaceNet:
         #    scale, zero_point = self.output_face['quantization']
         #    embeds = (embeds.astype(np.float32) - zero_point) * scale  # re-scale
     
+        return embeds
+    
+class facerecolib:
+    def __init__(self):
+        pass
+    
+    def get_embeddings(self, img):
+        embeds = face_recognition.face_encodings(img)[0]
         return embeds

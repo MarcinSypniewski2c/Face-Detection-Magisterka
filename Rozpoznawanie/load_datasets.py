@@ -34,20 +34,25 @@ class LFW:
 class MFN:
     def __init__(self):
         self.dataset_path = "/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/"
-        self.data_images_path = self.dataset_path + "CMFD/images/*.jpg"
+        self.data_images_path_cmfd = self.dataset_path + "CMFD/images/*.jpg"
+        self.data_images_path_imfd = self.dataset_path + "IMFD/images/*.jpg"     
+        self.data_images_path = [self.data_images_path_cmfd, self.data_images_path_imfd]
 
     def get_names(self):
         names = []
-        for path in glob.glob(self.data_images_path, recursive=True):
+        for path in glob.glob(self.data_images_path_cmfd, recursive=True):
+            #names
+            names.append((path.split("/")[-1]).split(".")[0])
+        for path in glob.glob(self.data_images_path_imfd, recursive=True):
             #names
             names.append((path.split("/")[-1]).split(".")[0])
         return names
 
     def get_data(self):
-        for path in glob.glob(self.data_images_path, recursive=True):
+        for data_path in self.data_images_path:
+            for path in glob.glob(data_path, recursive=True):
+                #images
+                #img = cv2.imread(path)
+                data = cv2.imread(path)
 
-            #images
-            #img = cv2.imread(path)
-            data = cv2.imread(path)
-
-            yield data
+                yield data

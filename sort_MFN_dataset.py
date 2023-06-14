@@ -2,11 +2,11 @@ import glob
 import os
 import shutil
 
-main_path = "/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/CMFD"
+main_path = "/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/IMFD"
 
 annotations_yolo_path = main_path + "/labels_yolo/"
 images_yolo_path = main_path + "/images/"
-images_to_extract_path = main_path + "/[0-9][0-9][0-9][0-9][0-9]/*.jpg"
+images_to_extract_path = main_path + "/[0-1][0-9][0-9][0-9][0-9]/*.jpg"
 
 images_to_extract = sorted(glob.glob(images_to_extract_path))
 

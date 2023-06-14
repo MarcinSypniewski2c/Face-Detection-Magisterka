@@ -6,13 +6,13 @@ import csv
 
 from Detekcja.models import Haar, Insightface, FaceRecoLib, YoloV5
 
-#detector = Insightface()
-detector = Haar()
+detector = Insightface()
+#detector = Haar()
 #detector = FaceRecoLib()
 #detector = YoloV5()
 
-dataname = "wider_train_haar"
-dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/WiderFace/WIDER_train/'
+dataname = "mfn_imfd_insight"
+dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/IMFD/'
 dataset_labels_path = dataset_path + 'labels_yolo'
 dataset_images_path = dataset_path + 'images'
 
