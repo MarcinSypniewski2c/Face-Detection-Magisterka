@@ -11,9 +11,7 @@ detector = Haar()
 #detector = FaceRecoLib()
 #detector = YoloV5()
 
-dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/IMFD/'
-dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/MaFa/val/'
-#dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/WiderFace/WIDER_val/'
+dataset_path = "/path/to/dataset/"
 dataset_images_path = dataset_path + 'images'
 
 def main():

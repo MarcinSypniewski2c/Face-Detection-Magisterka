@@ -12,7 +12,7 @@ detector = Insightface()
 #detector = YoloV5()
 
 dataname = "mfn_imfd_insight"
-dataset_path = '/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/IMFD/'
+dataset_path = "/path/to/dataset/"
 dataset_labels_path = dataset_path + 'labels_yolo'
 dataset_images_path = dataset_path + 'images'
 

@@ -12,7 +12,7 @@ def pad_string(string, length, char='0'):
 
 class LFW:
     def __init__(self):
-        self.dataset_path = "/home/msypniewski@sap-flex.com/Documents/DATASETS/LFW_people/"
+        self.dataset_path = "/path/to/dataset/"
         self.data_images_path = self.dataset_path + "images/*/*.jpg"
 
     def get_names(self):
@@ -33,7 +33,7 @@ class LFW:
     
 class MFN:
     def __init__(self):
-        self.dataset_path = "/home/msypniewski@sap-flex.com/Documents/DATASETS/MaskedFace-Net/"
+        self.dataset_path = "/path/to/dataset/"
         self.data_images_path_cmfd = self.dataset_path + "CMFD/images/*.jpg"
         self.data_images_path_imfd = self.dataset_path + "IMFD/images/*.jpg"     
         self.data_images_path = [self.data_images_path_cmfd, self.data_images_path_imfd]
