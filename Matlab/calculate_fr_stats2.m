@@ -1,4 +1,4 @@
-dataset = "E:\Marcin\Magisterka\Dane\Reco\MFN";
+dataset = "E:\Path\to\dataset;";
 dataset_name = "mfn";
 dataset_lower = lower(dataset_name);
 library = "facenet";

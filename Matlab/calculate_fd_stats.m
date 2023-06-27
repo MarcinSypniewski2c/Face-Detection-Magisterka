@@ -1,4 +1,4 @@
-dataset = "E:\Marcin\Magisterka\Dane\Det\MFN";
+dataset = "E:\Path\to\dataset";
 dataset_name = "MFN";
 dataset_lower = lower(dataset_name);
 library = "yolo";
