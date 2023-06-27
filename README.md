@@ -1,9 +1,3 @@
-# Face Recognition Magisterka
+# Detekcja i Rozpoznawanie twarzy w maseczkach antywirusowych
 
-## Requirements
-Wersja Python: 3.7.16   
-`pip install -r requirements_magisterka.txt`
-
-## Detekcja
-
-## Rozpoznawanie
+Opis zawartego oprogramowania jego konfiguracji oraz przygotowania środowiska znajduje się w sekcji Załączniki w pracy dyplomowej.
